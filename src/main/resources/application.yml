@@ -1,0 +1,14 @@
+spring:
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: utf-8
+    servlet:
+      content-type: text/html
+    check-template-location: true
+server:
+  port: 8886
+  servlet:
+    context-path: /course
