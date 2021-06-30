@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <title>具体套餐</title>
+    <style>
+        .container, .container-md, .container-sm {
+            max-width: 100%;
+        }
+        .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+            width: 100%;
+            padding-right: 0px;!important;
+            padding-left: 0px;!important;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .col-center-block {
+            position: absolute;
+            -webkit-transform: translateY(-50%);
+            -moz-transform:  translateY(-50%);
+            -ms-transform:  translateY(-50%);
+            -o-transform:  translateY(-50%);
+            transform:  translateY(-50%);
+        }
+        .fixed-bottom {
+            height: 13%;!important;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">套餐一</h5>
+            <p class="card-text">某某项目</p>
+            <p class="card-text">某某某医院</p>
+            <div class="float-right" style="margin-top: -15%;">
+                <a href="#" onclick="window.location.href='meCen.html'">
+                    进入体检中心
+                </a>
+            </div>
+        </div>
+     </div>
+<!--导航签内容-->
+    <!--style=" overflow:scroll;"-->
+    <nav style=" overflow:scroll;">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">套餐项目</a>
+            <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">体检须知</a>
+        </div>
+        <!--对应导航签内容-->
+        <div class="tab-content " id="nav-tabContent" style="position:absolute;height: 55%;overflow:auto;width: 100%;">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">1.心电图检查</h5>
+                        <p class="card-text">主要反映心脏电激动过程</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">2.血常规</h5>
+                        <p class="card-text">分析血液中各种成分</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">3.电解质七项</h5>
+                        <p class="card-text">了解人体体内的部分微量元素</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">4.体检尿常规</h5>
+                        <p class="card-text">体检尿常规</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">5.心脏彩超</h5>
+                        <p class="card-text">心脏彩超</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <text>
+                    1、前一天20点后请勿进食进水;2、体检当天需要进行抽血
+                </text>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!--style="height: 10%;"-->
+    <div class="card fixed-bottom col-lg-4 col-lg-offset-4">
+        <div class="card-body">
+            <h6 class="card-text">共2个项目</h6>
+            <p class="card-text">个人支付</p>
+            <p class="float-right" style="margin-top: -14%;margin-right: 52%;">6070.36</p>
+            <div class="float-right" style="margin-top: -17%;margin-right: -72%;">
+            <a href="#" onclick="window.location.href='meCen.html'">
+                下一步
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

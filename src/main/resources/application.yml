@@ -9,6 +9,6 @@ spring:
       content-type: text/html
     check-template-location: true
 server:
-  port: 8886
+  port: 80
   servlet:
     context-path: /course
