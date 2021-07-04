@@ -14,10 +14,10 @@ import java.util.Arrays;
 @Service
 @Slf4j
 public class WxService {
-      private  final String TOKEN="bxs324";
+      private static   final String TOKEN="bxs324";
 
     /**验证签名*/
-    public  boolean check(String timestamp,String nonce,String signature){
+    public static  boolean  check(String timestamp,String nonce,String signature){
        String[] strs = new String[]{TOKEN,timestamp,nonce};
        Arrays.sort(strs);
        String str = strs[0]+strs[1]+strs[2];

@@ -76,13 +76,13 @@ public class MainPageController {
         Button btn = new Button();
         /**第一个一级菜单*/
         SubButton sb = new SubButton("体检预约");
-        sb.getSub_button().add(new ViewButton("个人预约","http://poi.5gzvip.idcfengye.com/course/weChatPage/pageNav"));
-        sb.getSub_button().add(new ViewButton("团体预约","http://poi.5gzvip.idcfengye.com/course/weChatPage/confirmappo"));
+        sb.getSub_button().add(new ViewButton("个人预约","http://24w801v382.wicp.vip/course/weChatPage/pageNav"));
+        sb.getSub_button().add(new ViewButton("团体预约","http://24w801v382.wicp.vip/course/weChatPage/confirmappo"));
         btn.getButton().add(sb);
         /**第二个一级菜单*/
-        btn.getButton().add(new ViewButton("体检报告","http://poi.5gzvip.idcfengye.com/course/weChatPage/confirmappo"));
+        btn.getButton().add(new ViewButton("体检报告","http://24w801v382.wicp.vip/course/weChatPage/newPage"));
         /**第三个一级菜单*/
-        btn.getButton().add(new ViewButton("个人中心","http://poi.5gzvip.idcfengye.com/course/weChatPage/confirmappo"));
+        btn.getButton().add(new ViewButton("个人中心","http://24w801v382.wicp.vip/course/weChatPage/myself"));
         JSONObject.toJSON(btn);
         String url = GET_MENU_URL.replace("ACCESS_TOKEN",wxService.getAccessToken());
         String tokenStr = webUtisServ.getReDoPost(url,JSONObject.toJSON(btn).toString());

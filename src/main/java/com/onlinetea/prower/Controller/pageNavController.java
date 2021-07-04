@@ -43,9 +43,53 @@ public class pageNavController {
     }
 
     @GetMapping("/success")
-    public String index(HttpServletRequest request) {
+    public String success(HttpServletRequest request) {
 
         return "success";
     }
 
+
+    @GetMapping("/medicReport")
+    public String medicReport(HttpServletRequest request) {
+
+        return "medicReport";
+    }
+
+
+    @GetMapping("/myself")
+    public String myself(HttpServletRequest request) {
+
+        return "myself";
+    }
+
+
+    @GetMapping("/editmyself")
+    public String editmyself(HttpServletRequest request) {
+
+        return "editmyself";
+    }
+
+    @GetMapping("/login")
+    public String login(HttpServletRequest request) {
+
+        return "login";
+    }
+
+    @GetMapping("/newPage")
+    public String newPage(HttpServletRequest request) {
+
+        return "newPage";
+    }
+
+    @GetMapping("/teamappo")
+    public String teamappo(HttpServletRequest request) {
+
+        return "teamappo";
+    }
+
+    @GetMapping("/teaminfo")
+    public String teaminfo(HttpServletRequest request) {
+
+        return "teaminfo";
+    }
 }
