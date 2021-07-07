@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.onlinetea.prower.Bean.*;
 import com.onlinetea.prower.Service.WxService;
 import com.onlinetea.prower.Uitls.WebUtisServ;
+import lombok.extern.slf4j.Slf4j;
 import netscape.javascript.JSObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jackson.JsonObjectDeserializer;
@@ -15,16 +16,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
+
 @Controller
 
+@Slf4j
 public class MainPageController {
     @Autowired
-    static
-    WxService wxService;
+    static  WxService wxService;
 
-    @Autowired
-    static
-    WebUtisServ webUtisServ;
+      @Autowired
+      static  WebUtisServ webUtisServ;
 
 
     public static final String GET_MENU_URL="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";
@@ -43,28 +45,32 @@ public class MainPageController {
     @RequestMapping(value = "/mainpage",method =RequestMethod.GET)
     @ResponseBody
     public void DealMainPage(HttpServletRequest request,HttpServletResponse response) throws IOException {
-        System.out.println("接入成功！！！");
+
         String signature = request.getParameter("signature");
         String timestamp = request.getParameter("timestamp");
         String nonce = request.getParameter("nonce");
         String echostr = request.getParameter("echostr");
-
+        log.info("signature:"+signature);
+        log.info("timestamp:"+timestamp);
+        log.info("nonce:"+nonce);
+        log.info("echostr:"+echostr);
         if(wxService.check(timestamp,nonce,signature)){
-            System.out.println("验证成功！！！");
+            log.info("========== 开始check校验");
             PrintWriter out = response.getWriter();
             out.print(echostr);
             out.flush();
             out.close();
         }else{
-            System.out.println("验证失败！！！");
+
         }
+//        getMenu();
     }
 
     /**获取用户发送的信息*/
     @RequestMapping(value = "/mainpage",method =RequestMethod.POST)
     @ResponseBody
     public void doPost(HttpServletRequest request,HttpServletResponse response){
-        System.out.println("dopost！！！");
+
 //        getMenu();
 //        wxService.getAccessToken();
     }
@@ -73,11 +79,12 @@ public class MainPageController {
 
     /**生成自定义菜单*/
     private static  String getMenu(){
+        log.info("========== 开始获取自定义Menu");
         Button btn = new Button();
         /**第一个一级菜单*/
         SubButton sb = new SubButton("体检预约");
         sb.getSub_button().add(new ViewButton("个人预约","http://47.97.122.233:28090/course/weChatPage/pageNav"));
-        sb.getSub_button().add(new ViewButton("团体预约","http://47.97.122.233:28090/course/weChatPage/confirmappo"));
+        sb.getSub_button().add(new ViewButton("团体预约","http://47.97.122.233:28090/course/weChatPage/teamappo"));
         btn.getButton().add(sb);
         /**第二个一级菜单*/
         btn.getButton().add(new ViewButton("体检报告","http://47.97.122.233:28090/course/weChatPage/newPage"));
@@ -85,11 +92,13 @@ public class MainPageController {
         btn.getButton().add(new ViewButton("个人中心","http://47.97.122.233:28090/course/weChatPage/myself"));
         JSONObject.toJSON(btn);
         String url = GET_MENU_URL.replace("ACCESS_TOKEN",wxService.getAccessToken());
+
         String tokenStr = webUtisServ.getReDoPost(url,JSONObject.toJSON(btn).toString());
-        System.out.println(tokenStr);
+
         return tokenStr;
 
     }
+
 
 
 

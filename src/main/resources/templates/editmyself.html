@@ -21,7 +21,70 @@
 </head>
 <body>
 <div class="container">
+    <div class="tab-content " id="nav-tabContent" style="position:absolute;height: 55%;overflow:auto;width: 100%; top: 6%;">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-xm">姓名</span>
+                </div>
+                <input type="text" class="form-control" placeholder="(必填)请输入姓名"  aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-xb">性别</span>
+                </div>
+                <input type="text" class="form-control" placeholder="(必填)请输入性别"  aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-zjlx" for="inputGroupSelect01">证件类型</span>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>请选择</option>
+                    <option value="1">身份证</option>
+                    <option value="2">居住证</option>
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-zjhm">证件号码</span>
+                </div>
+                <input type="text" class="form-control" placeholder="(必填)请输入证件号"  aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-lxfs">联系方式</span>
+                </div>
+                <input type="text" class="form-control" placeholder="(必填)请输入联系方式"  aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary" type="button">获取验证码</button>
+                </div>
+                <input type="text" class="form-control" placeholder="(必填)请输入验证码"  aria-describedby="basic-addon1">
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+    <div class="card fixed-bottom col-lg-4 col-lg-offset-4">
+        <div class="card-body">
+
+            <div class="float-right" style="margin-top: 4%;margin-right: -7%;display: inline-block;">
+                <a href="http://47.97.122.233:28090/course/weChatPage/editsuccess">
+                    确认修改
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 
 

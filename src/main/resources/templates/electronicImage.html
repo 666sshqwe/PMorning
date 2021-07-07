@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>电子影像查询</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
-    <title>填写预约信息</title>
     <style>
         .container, .container-md, .container-sm {
             max-width: 100%;
@@ -16,17 +16,7 @@
             margin-right: auto;
             margin-left: auto;
         }
-        .col-center-block {
-            position: absolute;
-            -webkit-transform: translateY(-50%);
-            -moz-transform:  translateY(-50%);
-            -ms-transform:  translateY(-50%);
-            -o-transform:  translateY(-50%);
-            transform:  translateY(-50%);
-        }
-        .fixed-bottom {
-            height: 13%;!important;
-        }
+
     </style>
 </head>
 <body>
@@ -38,37 +28,33 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-xm">姓名</span>
                 </div>
-                <input type="text" class="form-control" placeholder="(必填)请输入姓名"  aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="请输入姓名"  aria-describedby="basic-addon1">
             </div>
-
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-zjlx" for="inputGroupSelect01">证件类型</span>
+                    <span class="input-group-text" id="basic-xb">病号历</span>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>请选择</option>
-                    <option value="1">身份证</option>
-                    <option value="2">居住证</option>
-                </select>
+                <input type="text" class="form-control" placeholder="请输病号历"  aria-describedby="basic-addon1">
             </div>
+
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-zjhm">证件号码</span>
+                    <span class="input-group-text" id="basic-zjhm">身份证号码</span>
                 </div>
                 <input type="text" class="form-control" placeholder="(必填)请输入证件号"  aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-lxfs">联系方式</span>
+                    <span class="input-group-text" id="basic-lxfs">手机号</span>
                 </div>
-                <input type="text" class="form-control" placeholder="(必填)请输入联系方式"  aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="手机号"  aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <button class="btn btn-outline-secondary" type="button">获取验证码</button>
                 </div>
-                <input type="text" class="form-control" placeholder="(必填)请输入验证码"  aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="请输入验证码"  aria-describedby="basic-addon1">
             </div>
 
 
@@ -84,20 +70,17 @@
         <div class="card-body">
 
             <div class="float-right" style="margin-top: 4%;margin-right: -7%;display: inline-block;">
-                <a href="http://47.97.122.233:28090/course/weChatPage/success">
-                    提交个人预约
-                </a>
-            </div>
-
-            <div class="float-right" style="margin-top: 4%;margin-right: 5%;display: inline-block;">
-                <a href="http://47.97.122.233:28090/course/weChatPage/successTeam">
-                    提交团队预约
+                <a href="">
+                    查询
                 </a>
             </div>
         </div>
     </div>
+
+
 </div>
+
+</body>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-</body>
 </html>

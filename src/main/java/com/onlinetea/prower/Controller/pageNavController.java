@@ -92,4 +92,41 @@ public class pageNavController {
 
         return "teaminfo";
     }
+
+    @GetMapping("/successTeam")
+    public String successTeam(HttpServletRequest request) {
+
+        return "successTeam";
+    }
+
+    @GetMapping("/teamsearch")
+    public String teamsearch(HttpServletRequest request) {
+
+        return "teamsearch";
+    }
+
+    @GetMapping("/hwoToappo")
+    public String hwoToappo(HttpServletRequest request) {
+
+        return "hwoToappo";
+    }
+
+    @GetMapping("/editsuccess")
+    public String editsuccess(HttpServletRequest request) {
+
+        return "editsuccess";
+    }
+
+
+    @GetMapping("/electronicimage")
+    public String electronicimage(HttpServletRequest request) {
+
+        return "electronicimage";
+    }
+
+    @GetMapping("/report")
+    public String report(HttpServletRequest request) {
+
+        return "report";
+    }
 }

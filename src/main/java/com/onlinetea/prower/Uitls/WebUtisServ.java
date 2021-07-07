@@ -1,6 +1,7 @@
 package com.onlinetea.prower.Uitls;
 
 import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -11,10 +12,13 @@ import java.net.URL;
 import java.net.URLConnection;
 
 @Component
+@Slf4j
 public class WebUtisServ {
 
     public static String getReDoGet(String url){
         try {
+            log.info("========== 开始获取token的请求");
+            log.info("========== 获取token时，Get请求的url:"+url.toString());
             URL urlObject = new URL(url);
             //开链接
             URLConnection connection =  urlObject.openConnection();
@@ -37,6 +41,8 @@ public class WebUtisServ {
 
     public String getReDoPost(String url,String data){
         try {
+            log.info("========== 发送自定义Menu请求");
+            log.info("========== Post请求的url:"+url.toString());
             URL urlObject = new URL(url);
             //开链接
             URLConnection connection =  urlObject.openConnection();
