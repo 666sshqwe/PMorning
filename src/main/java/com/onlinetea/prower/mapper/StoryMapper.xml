@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.onlinetea.prower.mapper.StoryMapper">
+
+    <select id="getDramaInfos" resultType="com.onlinetea.prower.Bean.DramaInfo">
+        SELECT id as id ,drama_name as dramaName,drama_desc as dramaDesc,image_path as dramaImage,drama_type as dramaType,create_time as createTime
+        FROM drama
+        WHERE drama_type = #{type}
+    </select>
+
+    <select id="getDramaRole" resultType="com.onlinetea.prower.Bean.DramaRole">
+        SELECT drama.drama_name as title,drama.drama_name as dramaName, role.id as id ,role.role_name as roleName,role.role_sex as roleSex,role.drama_id as dramaId,
+        role.role_image as roleImage,role.role_desc as roleDesc
+        FROM drama_role role
+		left join drama on drama.id = role.drama_id
+        WHERE drama_id = #{dramaId} and role.type = 1
+    </select>
+
+</mapper>

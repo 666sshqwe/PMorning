@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.onlinetea.prower.mapper.ResourceMappingMapper">
+
+    <sql id="baseSql" >id,resource,resource_desc,field,field_desc,mapping_resource,mapping_resource_desc,
+mapping_field,mapping_field_desc,primary_key,
+send_status,tenant_id,created_time,created_by,updated_time,updated_by,ori_type,origin</sql>
+
+    <insert id="saveOrUpdateMapping" parameterType="list">
+        INSERT INTO resource_mapping
+        (
+        resource,
+        resource_desc,
+        field,
+        field_desc,
+        mapping_resource,
+        mapping_resource_desc,
+        mapping_field,
+        mapping_field_desc,
+        primary_key,
+        ori_type,
+        origin
+        )
+        VALUES
+        <foreach collection="poList" separator="," item="po">
+            (
+            #{po.resource},
+            #{po.resourceDesc},
+            #{po.field},
+            #{po.fieldDesc},
+            #{po.mappingResource},
+            #{po.mappingResourceDesc},
+            #{po.mappingField},
+            #{po.mappingFieldDesc},
+            #{po.primaryKey},
+            #{po.oriType},
+            #{po.origin}
+            )
+        </foreach>
+        ON duplicate KEY UPDATE
+        resource = VALUES(resource),
+        resource_desc = VALUES(resource_desc),
+        field = VALUES(field),
+        field_desc = VALUES(field_desc),
+        mapping_resource = VALUES(mapping_resource),
+        mapping_resource_desc = VALUES(mapping_resource_desc),
+        mapping_field = VALUES(mapping_field),
+        mapping_field_desc = VALUES(mapping_field_desc),
+        primary_key = VALUES(primary_key),
+        ori_type = VALUES(ori_type),
+        origin = VALUES(origin)
+    </insert>
+
+    <select id="queryCmdbPushPreview" parameterType="String"
+            resultType="com.onlinetea.prower.mapper.dto.ResourceMappingPO">
+        SELECT <include refid="baseSql"></include>
+        FROM resource_mapping AS mapping
+        WHERE 1=1
+        <if test="resource != null and resource != ''">
+            AND resource = #{resource}
+        </if>
+    </select>
+
+</mapper>

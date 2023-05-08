@@ -4,13 +4,16 @@ import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.crypto.hash.Sha384Hash;
+import org.apache.shiro.crypto.hash.SimpleHash;
 
 public class MyMatcher extends SimpleCredentialsMatcher {
+
     @Override
     public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
         UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken)token;
-        String pwd = encrypt(String.valueOf(usernamePasswordToken.getPassword()));
+        String pwd = encrypt(String.valueOf(usernamePasswordToken.getPassword()),"");
         String mysqlpwd = (String)info.getCredentials();
         return this.equals(pwd, mysqlpwd);
     }
@@ -19,9 +22,9 @@ public class MyMatcher extends SimpleCredentialsMatcher {
     /**暂时加密方法
      *
      * */
-    private String encrypt(String data){
-        String sha384Hex = new Sha384Hash(data).toBase64();
-        return sha384Hex;
+    public String encrypt(String secret,String salt){
+        SimpleHash encrypt = new SimpleHash("md5",secret,salt,1024);
+        return encrypt.toString();
     }
 
 }

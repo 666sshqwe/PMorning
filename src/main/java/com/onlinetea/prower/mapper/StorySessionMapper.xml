@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.onlinetea.prower.mapper.StorySessionMapper">
+
+    <insert id="createSessions" parameterType="com.onlinetea.prower.View.SessionsVo">
+        INSERT INTO story_sessions
+        (c_id,drama_name,creater_id,user_ids,user_num,role_num,create_time,drama_id,cross_gender)
+        VALUES
+        (#{cId},#{dramaName},#{createId},#{userIds},#{userNum},#{roleNum},#{createTime},#{dramaId},#{crossGender})
+        <selectKey  resultType = "long" order="AFTER" keyProperty="cId" keyColumn="c_id">
+            select LAST_INSERT_ID() as cId
+        </selectKey>
+    </insert>
+
+    <select id="querySession" resultType="com.onlinetea.prower.View.SessionsVo">
+        SELECT c_id as cId, drama_name as dramaName,creater_id as createId,drama_id as dramaId,
+        user_ids as userIds,user_num as userNum,role_num as roleNum,create_time as createTime
+        FROM story_sessions
+        WHERE c_id = #{sessionId}
+    </select>
+
+
+    <update id="updateSession" parameterType="com.onlinetea.prower.View.SessionsVo">
+        UPDATE story_sessions
+        SET
+        user_ids = #{userIds},
+        user_num = #{userNum},
+        role_num = #{roleNum},
+        update_time = #{updateTime},
+        cross_gender = #{crossGender}
+        WHERE c_id = #{cId}
+    </update>
+
+    <select id="querySessionDetail" resultType="com.onlinetea.prower.Bean.StorySessionDetail">
+        SELECT id as id, user_id as userId,role_id as roleId,session_type as sessionType
+        FROM story_session_detail
+        WHERE story_session_id = #{sessionId} and session_type = #{sessionType}
+    </select>
+
+    <update id="updateSessionDeatil" parameterType="com.onlinetea.prower.Bean.StorySessionDetail">
+        UPDATE story_session_detail
+        SET user_id = #{userId},role_id = #{roleId},story_session_id = #{storySessionId},session_type = #{sessionType}
+        WHERE id = #{id}
+    </update>
+
+
+    <insert id="insertSessionDeatil" parameterType="com.onlinetea.prower.Bean.StorySessionDetail">
+        INSERT INTO story_session_detail
+        (user_id,role_id,story_session_id,session_type,role_name,drama_name)
+        VALUES
+        (#{userId},#{roleId},#{storySessionId},#{sessionType},#{roleName},#{dramaName})
+    </insert>
+
+    <select id="queryAllSessions" resultType="com.onlinetea.prower.View.SessionsVo">
+    SELECT
+	c_id AS cId,
+	drama.drama_name AS dramaName,
+	creater_id AS createId,
+	drama_id AS dramaId,
+	user_num AS userNum,
+	role_num AS roleNum,
+	drama.image_path AS dramaImage
+    FROM
+	story_sessions
+	LEFT JOIN drama ON story_sessions.drama_id = drama.id
+    </select>
+
+
+
+</mapper>

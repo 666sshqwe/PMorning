@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.onlinetea.prower.mapper.chapterDao.ChapterInfoMapper">
+    <insert id="saveChapterListUrl">
+        INSERT INTO readerinfo
+        (reader_name,chapterList_url)
+        VALUES
+        (#{readerName},#{url})
+
+    </insert>
+
+    <select id="queryMainPageUrl" parameterType="String" resultType="java.lang.String">
+        SELECT chapterList_url
+        FROM readerinfo
+        WHERE reader_name=#{targetName}
+    </select>
+
+</mapper>
